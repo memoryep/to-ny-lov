@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="icon.png">
     <title>Para o Amor da Minha Vida</title>
-    
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,11 +146,20 @@
             padding: 60px 20px;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 120px 20px;
+        }
+
         .hero {
             max-width: 800px;
             width: 100%;
             margin: auto;
             animation: fade 2s ease;
+            transform-origin: center;
         }
 
         .hero h1 {
@@ -276,6 +285,16 @@
             padding: 25px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: .4s;
+        }
+
+        .moment-content:hover {
+            transform: translateY(-8px);
+
+            background:
+                rgba(255, 255, 255, 0.12);
         }
 
         .moment h3 {
@@ -430,7 +449,9 @@
                 construir memórias e escrever a nossa história.
             </p>
 
-            <a href="#historia" class="btn">Nossa História</a>
+            <a href="#historia" class="btn" id="btnHistoria">
+                Nossa História
+            </a>
 
 
 
@@ -452,9 +473,9 @@
                     <button class="btn-surpresa" onclick="abrirVaral()">
                         Abrir nossas fotos 📸
                     </button>
-                    
+
                 </div>
-            
+
 
                 <div class="varal-fotos" id="varalFotos">
                     <h3>Algumas memórias nossas ❤️</h3>
@@ -480,11 +501,11 @@
                             <p>Pra sempre nós</p>
                         </div>
                     </div>
-                     <button class="btn-surpresa" onclick="abrirCarta()">
+                    <button class="btn-surpresa" onclick="abrirCarta()">
                         Ler minha carta 💌
                     </button>
 
-                   
+
                 </div>
 
                 <div class="carta" id="carta">
@@ -762,6 +783,22 @@
                 varal.style.display = "block";
             }
         }
+
+        const btnHistoria =
+            document.getElementById("btnHistoria");
+
+        btnHistoria.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const destino =
+                document.querySelector("#historia");
+
+            destino.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
     </script>
 
 </body>
